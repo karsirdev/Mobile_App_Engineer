@@ -1,89 +1,115 @@
-# 🚀 Lộ trình trở thành Mobile Engineer — Nguyên (karsirdev)
+# ✅ Checklist thực hành — Mobile Engineer (Nguyên)
 
-> Sinh viên năm nhất (2007) · MacBook M4 Pro · Kotlin · Swift · C++
-> Mục tiêu: Thành thạo cả iOS (Swift/SwiftUI) lẫn Android (Kotlin/Jetpack Compose), song song định hướng Cybersecurity làm lợi thế riêng.
-
----
-
-## 📍 Giai đoạn 0 — Nền tảng (đang làm)
-
-- [x] Cài đặt môi trường: Xcode, Android Studio, VS Code, CLion
-- [x] Ôn Python OOP (IT202), Database (MySQL: trigger, stored procedure, transaction, ACID)
-- [x] Ôn FastAPI backend (IT215) — hiểu REST API, sẽ cần khi mobile app gọi backend
-- [ ] Luyện DSA bằng C++ song song (tư duy thuật toán dùng chung cho mọi ngôn ngữ)
-- [ ] Git/GitHub thành thạo: branch, PR, conflict resolution
-
-**Mục tiêu ra giai đoạn:** Đọc hiểu code Swift/Kotlin cơ bản, tự tin dùng Git.
+> Không lý thuyết suông. Mỗi mục đều là bài cụ thể phải hoàn thành, có sản phẩm/commit để kiểm chứng.
+> Nhịp độ: 12 tuần, 6 buổi/tuần. Mỗi buổi ~1.5–2h.
 
 ---
 
-## 📱 Giai đoạn 1 — Ngôn ngữ & Nền tảng UI (3–4 tháng)
+## 🔁 Checklist mỗi ngày (áp dụng suốt 12 tuần)
 
-### iOS
-- Swift cơ bản → nâng cao: Optionals, Closures, Protocols, Generics
-- SwiftUI: State/Binding/Observable, layout system, navigation
-- Swift Concurrency (`async/await`, Task) — đã áp dụng ở SavingsBook (OTP flow)
-
-### Android
-- Kotlin cơ bản → nâng cao: null-safety, coroutines, sealed class, extension functions
-- Jetpack Compose: state hoisting, layout, navigation, theming
-- Coroutines & Flow cho xử lý bất đồng bộ
-
-**Dự án thực hành:** Tiếp tục hoàn thiện **SavingsBook** (đã có UI Figma 2 theme, OTP flow iOS) → build song song bản Android bằng Compose để so sánh trực tiếp 2 hệ sinh thái.
+- [ ] 1 bài LeetCode C++ (theo chủ đề tuần) → commit vào `github.com/karsirdev/Leetcode` (Conventional Commits)
+- [ ] 30–45 phút code tính năng thật cho SavingsBook (không tutorial, không copy code mẫu)
+- [ ] Commit ít nhất 1 lần/ngày kèm message rõ ràng (`feat:`, `fix:`, `refactor:`)
+- [ ] Cuối ngày ghi 2–3 dòng vào `DEVLOG.md`: hôm nay làm gì, vướng gì, ngày mai làm gì
 
 ---
 
-## 🏗️ Giai đoạn 2 — Kiến trúc & Networking (3–4 tháng)
+## Tuần 1–2 — Swift & Kotlin nền tảng
 
-- MVVM / Clean Architecture (áp dụng cho cả Swift & Kotlin)
-- Local storage: SwiftData/CoreData (iOS), Room (Android)
-- Networking: URLSession/Alamofire (iOS), Retrofit/Ktor (Android)
-- Kết nối app với backend FastAPI đã học ở IT215 — tự build API cho SavingsBook thay vì mock data
-- Dependency Injection cơ bản (Swinject / Hilt)
-- Unit test & UI test cơ bản (XCTest, JUnit/Compose Test)
+**Bài tập bắt buộc (không phải đọc doc):**
+- [ ] Viết 1 struct/class Swift mô phỏng `SavingsAccount` (số dư, lãi suất, ngày đáo hạn) + unit test tính lãi đơn/lãi kép
+- [ ] Làm lại y hệt bằng Kotlin `data class` — so sánh null-safety Kotlin vs Optional Swift, viết note ngắn về khác biệt
+- [ ] Viết 5 hàm dùng `higher-order functions` (map/filter/reduce) trên danh sách tài khoản mẫu — cả 2 ngôn ngữ
+- [ ] LeetCode: 10 bài Array/String (Easy→Medium) bằng C++
+- [ ] Build 1 màn hình SwiftUI tĩnh: danh sách tài khoản tiết kiệm (List + custom row), không dùng ViewModel
+- [ ] Build lại đúng màn hình đó bằng Jetpack Compose (LazyColumn + custom composable)
 
-**Mục tiêu ra giai đoạn:** SavingsBook có backend thật, auth, và test coverage tối thiểu.
-
----
-
-## 🔐 Giai đoạn 3 — Mobile Security (lợi thế cạnh tranh)
-
-> Đây là điểm khác biệt: kết hợp Cybersecurity + Mobile.
-
-- OWASP Mobile Top 10
-- Secure storage: Keychain (iOS), EncryptedSharedPreferences/Keystore (Android)
-- Certificate pinning, obfuscation cơ bản (ProGuard/R8)
-- Reverse engineering cơ bản để hiểu góc nhìn attacker (Jadx, Hopper/Ghidra ở mức nhập môn)
-- Áp dụng vào SavingsBook: audit lại luồng OTP, lưu trữ dữ liệu tài chính nhạy cảm
+**Sản phẩm cuối tuần:** 2 file model + 2 file test + 2 screenshot màn hình (iOS/Android) push lên repo `SavingsBook`.
 
 ---
 
-## 🌐 Giai đoạn 4 — Cross-platform & Mở rộng (tùy chọn)
+## Tuần 3–4 — State management & Navigation
 
-- Khảo sát Flutter hoặc KMP (Kotlin Multiplatform) — tận dụng nền Kotlin sẵn có
-- CI/CD cho mobile: Fastlane, GitHub Actions build cho cả 2 nền tảng
-- Publish thử app lên TestFlight / Google Play Internal Testing
+- [ ] SwiftUI: thêm `@Observable` ViewModel quản lý danh sách tài khoản, có thêm/xoá/sửa
+- [ ] Compose: thêm `ViewModel` + `StateFlow` làm y hệt chức năng trên
+- [ ] Thêm navigation: từ danh sách → màn hình chi tiết tài khoản (cả 2 nền tảng)
+- [ ] LeetCode: 10 bài Two Pointers + Binary Search bằng C++
+- [ ] Viết form "Thêm tài khoản mới" có validate input (số dư âm, ngày sai) — cả 2 nền tảng
+- [ ] Viết 3 unit test cho logic validate đó
 
----
-
-## 📦 Portfolio cần có (đăng trên github.com/karsirdev)
-
-| Dự án | Nền tảng | Trạng thái |
-|---|---|---|
-| SavingsBook | iOS + Android | 🔄 Đang phát triển |
-| Research Management (FastAPI) | Backend | 🔄 Hỗ trợ học API/backend |
-| App bảo mật nhỏ (password manager / secure notes) | iOS hoặc Android | 🎯 Sắp tới — thể hiện mảng security |
-| README + case study cho từng app | — | 🎯 Viết rõ kiến trúc, quyết định kỹ thuật |
+**Sản phẩm cuối tuần:** Flow thêm/xem/xoá tài khoản chạy được end-to-end trên cả iOS và Android (chưa cần backend).
 
 ---
 
-## 🧭 Nguyên tắc theo suốt lộ trình
+## Tuần 5–6 — Local storage & Concurrency
 
-1. **Học 1 nền tảng sâu trước, nền tảng kia song song ở mức đọc hiểu** — tránh học 2 thứ half-baked cùng lúc.
-2. Mỗi giai đoạn đều gắn với 1 tính năng cụ thể trong SavingsBook — học xong áp dụng ngay, không học chay.
-3. Security không phải giai đoạn cuối để "học cho biết" — review lại code cũ dưới góc nhìn bảo mật sau mỗi giai đoạn.
-4. Viết README/case study ngay sau khi hoàn thành 1 tính năng, đừng để dồn cuối.
+- [ ] iOS: lưu tài khoản bằng SwiftData (hoặc CoreData) thay vì array tạm — migrate dữ liệu tuần trước
+- [ ] Android: lưu bằng Room — làm y hệt
+- [ ] Viết 1 tính năng dùng `async/await` (Swift) và `coroutine` (Kotlin): giả lập fetch lãi suất từ "server" delay 2s, hiện loading state
+- [ ] LeetCode: 10 bài Linked List bằng C++
+- [ ] Viết bài test cho tầng Repository (không test UI) — cả 2 nền tảng
+
+**Sản phẩm cuối tuần:** Data persist qua restart app, có loading/error state thật (không fake).
 
 ---
 
-*Cập nhật lần cuối: theo tiến độ cá nhân — nên fork file này vào repo và tick từng mục khi hoàn thành.*
+## Tuần 7–8 — Kết nối Backend thật (FastAPI)
+
+- [ ] Trong `research_management`/backend riêng: viết endpoint `GET/POST /accounts` cho SavingsBook (dùng kiến thức IT215)
+- [ ] iOS: gọi API bằng `URLSession` + `Codable`, thay Repository local bằng network call thật
+- [ ] Android: gọi API bằng `Retrofit`, làm tương tự
+- [ ] Viết middleware/logic tính lãi suất thật ở backend (không hardcode ở client)
+- [ ] LeetCode: 8 bài Trees bằng C++
+- [ ] Viết 3 test case cho API bằng `pytest` (backend)
+
+**Sản phẩm cuối tuần:** SavingsBook đọc/ghi dữ liệu qua API thật, có demo video ngắn tự quay lại (không cần đăng, chỉ để tự đánh giá).
+
+---
+
+## Tuần 9 — Auth thật
+
+- [ ] Implement OTP verification flow đầy đủ (đã có phần iOS, giờ hoàn thiện cả backend + Android)
+- [ ] Lưu token bằng Keychain (iOS) và EncryptedSharedPreferences (Android) — **không lưu plain text**
+- [ ] LeetCode: 6 bài Hash Table/Set bằng C++
+
+**Sản phẩm cuối tuần:** Đăng nhập/đăng ký hoạt động thật, token không lộ trong logs hay plaintext storage.
+
+---
+
+## Tuần 10 — Mobile Security áp dụng thực tế
+
+- [ ] Audit lại toàn bộ luồng OTP + lưu trữ token bằng checklist OWASP Mobile Top 10 (tự viết report ngắn, liệt kê lỗ hổng tìm được)
+- [ ] Implement certificate pinning cho API call (cả 2 nền tảng)
+- [ ] Dùng Jadx decompile thử bản debug APK của chính mình — xem code có bị lộ gì không, viết note khắc phục
+- [ ] Áp dụng ProGuard/R8 rules cơ bản cho bản Android, so sánh trước/sau
+
+**Sản phẩm cuối tuần:** Báo cáo bảo mật (1 trang) + code fix đã áp dụng, commit riêng `security:` prefix.
+
+---
+
+## Tuần 11 — Testing & CI
+
+- [ ] Viết UI test cơ bản: flow đăng nhập → thêm tài khoản (XCTest + Compose Test)
+- [ ] Set up GitHub Actions: build + chạy test tự động khi push (cả iOS và Android job)
+- [ ] LeetCode: 6 bài Sliding Window/Stack bằng C++
+
+**Sản phẩm cuối tuần:** Badge CI "passing" hiển thị trên README repo SavingsBook.
+
+---
+
+## Tuần 12 — Polish & Case study
+
+- [ ] Viết README case study cho SavingsBook: vấn đề giải quyết, kiến trúc, quyết định kỹ thuật, ảnh chụp màn hình
+- [ ] Ghi lại 3 khó khăn lớn nhất đã gặp trong 12 tuần và cách xử lý — dùng để trả lời phỏng vấn sau này
+- [ ] Build thử 1 archive/release build (TestFlight nội bộ hoặc Android internal testing)
+- [ ] Review lại toàn bộ `DEVLOG.md` 12 tuần, tự chấm điểm tiến độ
+
+**Sản phẩm cuối:** Repo SavingsBook hoàn chỉnh, README chuyên nghiệp, sẵn sàng đưa vào portfolio/CV.
+
+---
+
+## 📌 Quy tắc chống học chay
+
+1. Không tick ô nào nếu chưa có **commit thật** tương ứng.
+2. Nếu 1 bài tập khó quá 45 phút không ra — ghi lại chỗ mắc vào `DEVLOG.md`, hỏi cụ thể (không hỏi chung chung "sao code không chạy").
+3. Cuối mỗi tuần, xoá code demo/tutorial-copy nếu có — chỉ giữ code tự viết.
